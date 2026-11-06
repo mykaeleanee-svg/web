@@ -1,0 +1,463 @@
+
+:root {
+  --bg: #f1e7da;
+  --surface: #fbf6ef;
+  --text: #4a2c17;
+  --muted: #7a5a43;
+  --border: #d9c6b0;
+  --primary: #7b4a2d;
+  --primary-dark: #5c3520;
+  --success: #8a5a3b;
+  --danger: #b3261e;
+  --warn-bg: #f8e1dc;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  line-height: 1.5;
+
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(to right, transparent 0 48px, rgba(179, 38, 30, 0.22) 48px 50px, transparent 50px),
+    repeating-linear-gradient(to bottom, transparent 0 31px, rgba(123, 74, 45, 0.16) 31px 32px);
+  background-attachment: fixed;
+}
+
+.app-header {
+  padding: 2rem 1.25rem 1rem;
+  text-align: center;
+}
+
+/* STUDY ME TITLE - CURSIVE FONT */
+.app-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--text);
+  font-family: cursive;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.app-header p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+/* ---------- menu ---------- */
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 1.25rem;
+}
+
+.tab {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 0.45rem 1.4rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tab--active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+/* ---------- screens ---------- */
+
+.layout {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+}
+
+.page--add,
+.page--progress {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.page--tasks {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+body[data-page='add'] .page:not(.page--add),
+body[data-page='tasks'] .page:not(.page--tasks),
+body[data-page='progress'] .page:not(.page--progress) {
+  display: none;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.panel h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+/* ---------- form ---------- */
+
+.task-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.task-form h2 {
+  margin: 0;
+}
+
+label {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+input[type='text'],
+input[type='date'],
+input[type='number'] {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  color: var(--text);
+  background: #fff;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.form-error,
+.error {
+  margin: 0;
+  padding: 0.5rem 0.7rem;
+  background: var(--warn-bg);
+  color: var(--danger);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.form-error[hidden] {
+  display: none;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.form-success {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  background: #efe3d3;
+  border-radius: 8px;
+}
+
+.form-success[hidden] {
+  display: none;
+}
+
+.form-success__text {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* ---------- buttons ---------- */
+
+.btn {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 0.55rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--border);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background: var(--bg);
+}
+
+.btn--small {
+  padding: 0.3rem 0.65rem;
+  font-size: 0.8rem;
+}
+
+.btn--danger {
+  color: var(--danger);
+}
+
+.btn--block {
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ---------- list ---------- */
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.list-header h2 {
+  margin: 0;
+}
+
+.filters {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.chip {
+  border: 1px solid var(--border);
+  background: transparent;
+  border-radius: 999px;
+  padding: 0.25rem 0.8rem;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.chip--active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.task--overdue {
+  border-color: var(--danger);
+  background: #fdf1ee;
+}
+
+.task--done .task__title {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.task__check {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--success);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.task__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.task__title {
+  margin: 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.task__meta {
+  margin: 0.15rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.tag {
+  background: #ead8c4;
+  color: var(--text);
+  border-radius: 6px;
+  padding: 0.05rem 0.45rem;
+  margin-right: 0.35rem;
+  font-weight: 600;
+}
+
+.badge {
+  background: var(--danger);
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.05rem 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  margin-left: 0.3rem;
+}
+
+.task__actions {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.empty {
+  color: var(--muted);
+  text-align: center;
+  padding: 1.5rem 0;
+  margin: 0;
+}
+
+/* ---------- summary ---------- */
+
+.progress {
+  height: 12px;
+  background: var(--bg);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress__bar {
+  height: 100%;
+  background: var(--success);
+  transition: width 0.3s ease;
+}
+
+.progress__label {
+  margin: 0.4rem 0 0.9rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.stats div {
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.stats dt {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.stats dd {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.stat--alert {
+  color: var(--danger);
+}
+
+.plan {
+  margin: 0.9rem 0 0;
+  font-size: 0.9rem;
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 800px) {
+  .task {
+    flex-wrap: wrap;
+  }
+
+  .task__actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+/* ---------- big screens (laptop / desktop) ---------- */
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 125%;
+  }
+
+  .layout {
+    max-width: 1500px;
+  }
+
+  .app-header h1 {
+    font-size: 3rem;
+  }
+
+  .page--add,
+  .page--progress {
+    max-width: 780px;
+  }
+
+  .page--tasks {
+    max-width: 1300px;
+  }
+
+  .task-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}

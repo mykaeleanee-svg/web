@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STUDY ME</title>
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#7b4a2d" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="add">
+    <header class="app-header">
+      <h1>STUDY ME</h1>
+      <p>Plan your tasks, track your hours, and beat the deadline.</p>
+    </header>
+
+    <nav class="nav-container" aria-label="Main menu"></nav>
+
+    <main class="layout">
+      <div class="page page--add">
+        <section class="panel task-form-container" aria-label="Add or edit a task"></section>
+      </div>
+
+      <div class="page page--tasks">
+        <section class="panel task-list-container" aria-label="Task list"></section>
+      </div>
+
+      <div class="page page--progress">
+        <section class="panel summary-container" aria-label="Progress summary"></section>
+      </div>
+    </main>
+
+    <script type="module" src="js/controller.js"></script>
+    <script src="js/pwa.js"></script>
+  </body>
+</html>
