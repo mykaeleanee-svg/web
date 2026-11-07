@@ -1,4 +1,4 @@
-# Study Planner
+# STUDY ME
 
 A single-page study planner built with plain JavaScript and an MVC structure on a base `View` class. No libraries, no backend; data is saved in `localStorage`.
 
