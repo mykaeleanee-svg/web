@@ -13,9 +13,14 @@ class FormView extends View {
     return `
       <form class="task-form" novalidate>
         <h2>${task ? 'Edit task' : 'Add a task'}</h2>
-        <label>Subject
-          <input type="text" name="subject" placeholder="e.g. Web Systems" value="${v('subject')}" />
-        </label>
+        <label for="subject">Subject</label>
+<input
+  type="text"
+  id="subject"
+  name="subject"
+  placeholder="e.g. Web Systems"
+  value="${v('subject')}"
+/>
         <label>What to do
           <input type="text" name="title" placeholder="e.g. Review MVC notes" value="${v('title')}" />
         </label>

@@ -63,11 +63,22 @@ export const validateTask = function (data) {
   const hoursRaw = String(data.hours ?? '').trim();
   const hours = Number(hoursRaw);
 
-  if (!subject) return 'Please enter a subject.';
-  if (!title) return 'Please describe what you need to study or finish.';
-  if (!dueDate) return 'Please pick a due date.';
-  if (!hoursRaw || Number.isNaN(hours) || hours <= 0)
-    return 'Estimated hours must be a number greater than 0.';
+  
+if (!subject) return 'Please enter a subject.';
+if (!title) return 'Please describe what you need to study or finish.';
+if (!dueDate) return 'Please pick a due date.';
+
+// Check if the due date is in the past
+const today = toDateString(new Date());
+
+if (dueDate < today) {
+  return 'Due date cannot be in the past.';
+}
+
+if (!hoursRaw || Number.isNaN(hours) || hours <= 0)
+  return 'Estimated hours must be a number greater than 0.';
+if (hours > 100) return 'Estimated hours cannot be more than 100.';
+
   if (hours > 100) return 'Estimated hours cannot be more than 100.';
   return null;
 };

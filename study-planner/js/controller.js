@@ -90,9 +90,16 @@ const controlFilter = function (filter) {
 
 const controlNavigate = function (page) {
   formView.clearSuccess();
+
+  if (model.state.editingId) {
+    model.setEditing(null);
+    renderForm();
+  }
+
   model.setPage(page);
   renderNav();
 };
+
 
 const controlClearCompleted = function () {
   model.clearCompleted();
