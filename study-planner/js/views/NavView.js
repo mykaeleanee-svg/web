@@ -30,7 +30,7 @@ class NavView extends View {
   }
 
   /* ----- handler the controller subscribes to ----- */
-
+// Event delegation: one click listener on the menu; data-page says which tab was clicked
   addHandlerNavigate(handler) {
     this._parentElement.addEventListener('click', e => {
       const btn = e.target.closest('[data-page]');
