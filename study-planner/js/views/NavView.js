@@ -1,6 +1,6 @@
 import View from './View.js';
 
-// Top menu that switches between the two screens.
+// Top menu that switches between the three screens.
 // It is still ONE page (index.html): the menu only changes which screen is visible.
 class NavView extends View {
   constructor() {
