@@ -25,9 +25,9 @@ class ListView extends View {
     if (tasks.length > 0) {
       body = `<ul class="task-list">${tasks.map(t => this._generateTaskMarkup(t)).join('')}</ul>`;
     } else if (totalCount === 0) {
-      body = '<p class="empty">No tasks yet. Add your first one in the Add task tab.</p>';
+      body = '<p class="empty" role="status">No tasks yet. Add your first one in the Add task tab.</p>';
     } else {
-      body = '<p class="empty">Nothing here for this filter.</p>';
+      body = '<p class="empty" role="status">Nothing here for this filter.</p>';
     }
 
     return `
